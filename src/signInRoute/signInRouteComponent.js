@@ -34,7 +34,7 @@ export default function SignUpRouteComponent() {
     setLoading(true);
 
     try {
-      const promisse = await axios.post(
+      await axios.post(
         "https://shortly-api-22wb.onrender.com/signup",
         user
       );
