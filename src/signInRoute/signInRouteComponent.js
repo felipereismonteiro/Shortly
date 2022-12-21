@@ -9,31 +9,32 @@ import Logo from "../components/logo";
 export default function SignUpRouteComponent() {
   const options = ["Entrar", "Cadastre-se"];
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   async function signUp(e) {
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.confirmPassword.value;
-
-    if (password !== confirmPassword) {
-      e.target.password.value = "";
-      e.target.confirmPassword.value = "";
-      setLoading(false);
-      return alert("Passwords doesn`t match!!!");
-    }
-
-    const user = {
-      name,
-      email,
-      password,
-      confirmPassword,
-    };
     e.preventDefault();
     setLoading(true);
 
     try {
+      const name = e.target.name.value;
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      const confirmPassword = e.target.confirmPassword.value;
+
+      if (password !== confirmPassword) {
+        e.target.password.value = "";
+        e.target.confirmPassword.value = "";
+        setLoading(false);
+        return alert("Passwords doesn`t match!!!");
+      }
+
+      const user = {
+        name,
+        email,
+        password,
+        confirmPassword,
+      };
+
       await axios.post(
         "https://shortly-api-22wb.onrender.com/signup",
         user
