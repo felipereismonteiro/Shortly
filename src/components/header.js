@@ -1,21 +1,42 @@
 import styled from "styled-components"
 
 export default function Header(values) {
-    const {mainText, options} = values;
+    const {options} = values;
+    const token = JSON.parse(localStorage.getItem("token"));
 
     function color(o) {
         if(values.page === "SignUp" && o === "Cadastre-se"){
             return "#5D9040";
         } else if(values.page === "SignIn" && o === "Entrar"){
             return "#5D9040";
-        } 
+        } else {
+            return "black"
+        }
+    }
+
+    function link(o) {
+        switch(o) {
+            case "Cadastre-se":
+                return "/signUp";
+            case "Entrar":
+                localStorage.clear();
+                return "/signIn";
+            case "Sair":
+                return "/signIn";
+            case "Home":
+                return "/user";
+            case "Ranking":
+                return "/ranking";
+            default:
+                return "";
+        }
     }
 
     return(
         <Container>
-            <MainText>{mainText}</MainText>
+            <MainText>{token !== null && `Seja bem vindo(a), ${token.userName.name}`}</MainText>
             <Option>
-                {options.map((o, index) => <Options key={index} href="google.com" color={color(o)}>{o}</Options>)}
+                {options.map((o, index) => <Options key={index} href={link(o)} color={color(o)}>{o}</Options>)}
             </Option>
         </Container>
     )
@@ -47,5 +68,4 @@ const Options = styled.a`
     font-weight: bold;
 `
 const Option = styled.div`
-
 `
