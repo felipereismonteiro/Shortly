@@ -9,12 +9,6 @@ export default function RankingPage() {
   let options;
   const token = JSON.parse(localStorage.getItem("token"));
   const [ranking, setRanking] = useState([]);
-    
-  if (token === null) {
-    options = ["Entrar", "Cadastre-se"];
-  } else {
-    options = ["Home", "Ranking", "Sair"];
-  }
 
   useEffect(() => {
     axios.get("https://shortly-api-22wb.onrender.com/ranking").then((res) => {
@@ -23,6 +17,28 @@ export default function RankingPage() {
         console.log(err.response.data)
     })
   }, [])
+    
+  if (token === null) {
+    options = ["Entrar", "Cadastre-se"];
+
+    return (
+        <>
+          <Header options={options} />
+          <Logo />
+          <Container>
+            <img src={trophy} alt="ranking" />
+            <h1>Ranking</h1>
+          </Container>
+          <BoxRanking>
+            {ranking.map((R, index) => <h1 key={R.id}>{index + 1}. {R.name} - {R.linksCount} links - {R.visitCount} visualizações</h1>)}
+          </BoxRanking>
+          <NotLogged>Crie sua conta para usar nosso serviço!</NotLogged>
+        </>
+      );
+
+  } else {
+    options = ["Home", "Ranking", "Sair"];
+  }
 
   return (
     <>
@@ -38,6 +54,15 @@ export default function RankingPage() {
     </>
   );
 }
+const NotLogged = styled.h1`
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+`
 const BoxRanking = styled.div`
     width: 80vw;
     height: 50vh;
