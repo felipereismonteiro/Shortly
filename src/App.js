@@ -3,7 +3,7 @@ import { GlobalStyle } from "./components/reset.js"
 import SignInComponent from "./signInRoute/signInComponents.js";
 import SignUpRouteComponent from "./signUpRoute/signUpRouteComponent.js";
 import { Context } from "./context/context"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UserRoute from "./userRoute/userRoute.js";
 import RankingPage from "./rankingRoute/rankingPage.js";
 
@@ -19,6 +19,7 @@ function App() {
       <GlobalStyle/>
       <Context.Provider value={{token, setToken}}>
       <Routes>
+        <Route path="/" element={<RankingPage />} />
         <Route path="/signUp" element={<SignUpRouteComponent />} />
         <Route path="/signIn" element={<SignInComponent />} />
         <Route path="/user" element={<UserRoute />} />
