@@ -9,7 +9,7 @@ import Logo from "../components/logo";
 export default function SignUpRouteComponent() {
   const options = ["Entrar", "Cadastre-se"];
   const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function signUp(e) {
     e.preventDefault();
@@ -82,26 +82,6 @@ export default function SignUpRouteComponent() {
     </>
   );
 }
-const ButtonLoading = styled.button`
-  width: 182px;
-  height: 60px;
-  left: 640px;
-  top: 701px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: #5d9040;
-  border-radius: 12px;
-  border: none;
-  color: #ffffff;
-
-  font-family: "Lexend Deca";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
-`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -147,4 +127,24 @@ const Submit = styled.input`
   &&:active {
     transform: translateY(1px);
   }
+`;
+const ButtonLoading = styled.button`
+  width: 182px;
+  height: 60px;
+  left: 640px;
+  top: 701px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #5d9040;
+  border-radius: 12px;
+  border: none;
+  color: #ffffff;
+
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
 `;
