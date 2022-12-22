@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
-import trash from "../../img/trash.png";
+import trash from "../img/trash.png";
 import { ColorRing } from "react-loader-spinner";
 
 export default function DeleteButton({loadUrls, setLoadUrls, id}) {

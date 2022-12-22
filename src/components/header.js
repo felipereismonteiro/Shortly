@@ -19,7 +19,12 @@ export default function Header(values) {
             case "Cadastre-se":
                 return "/signUp";
             case "Entrar":
+                localStorage.clear();
                 return "/signIn";
+            case "Sair":
+                return "/signIn";
+            case "Home":
+                return "/user";
             default:
                 return "";
         }

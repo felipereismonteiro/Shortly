@@ -1,17 +1,24 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import Header from "../header";
-import Logo from "../logo";
+import Header from "../components/header";
+import Logo from "../components/logo";
 import { ThreeDots } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
 import UserUrls from "./userUrls";
-import { Context } from "../../context/context";
 import axios from "axios";
 
 export default function UserRoute() {
   const options = ["Home", "Ranking", "Sair"];
   const [loading, setLoading] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
+
+  if (token === null) {
+    return (
+      <>
+      <Header options={["Entrar", "Cadastre-se"]}/>
+      <H1>Você não está logado! 😁</H1>
+      </>
+      )
+  }
 
   async function postUrl(e) {
     try {
@@ -37,7 +44,6 @@ export default function UserRoute() {
       <Header
         mainText="Seja bem-vindo(a), Pessoa!"
         options={options}
-        page={"SignIn"}
       />
       <Logo />
 
@@ -135,3 +141,14 @@ const Submit = styled.input`
     transform: translateY(1px);
   }
 `;
+const H1 = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 18px;
+`

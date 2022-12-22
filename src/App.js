@@ -4,7 +4,7 @@ import SignInComponent from "./signInRoute/signInComponents.js";
 import SignUpRouteComponent from "./signUpRoute/signUpRouteComponent.js";
 import { Context } from "./context/context"
 import { useEffect, useState } from "react";
-import UserRoute from "./components/userRoute/userRoute.js";
+import UserRoute from "./userRoute/userRoute.js";
 
 function App() {
   const [ token, setToken ] = useState(undefined);
