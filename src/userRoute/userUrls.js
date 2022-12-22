@@ -8,7 +8,6 @@ export default function UserUrls({ loading }) {
   const token = JSON.parse(localStorage.getItem("token"));
   const [urls, setUrls] = useState([]);
   const [loadUrls, setLoadUrls] = useState(true);
-  console.log(loadUrls)
 
   const config = {
     headers: {
