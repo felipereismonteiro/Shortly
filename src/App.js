@@ -5,6 +5,7 @@ import SignUpRouteComponent from "./signUpRoute/signUpRouteComponent.js";
 import { Context } from "./context/context"
 import { useEffect, useState } from "react";
 import UserRoute from "./userRoute/userRoute.js";
+import RankingPage from "./rankingRoute/rankingPage.js";
 
 function App() {
   const [ token, setToken ] = useState(undefined);
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signUp" element={<SignUpRouteComponent />} />
         <Route path="/signIn" element={<SignInComponent />} />
         <Route path="/user" element={<UserRoute />} />
+        <Route path="/ranking" element={<RankingPage />} />
       </Routes>
       </Context.Provider>
     </BrowserRouter>

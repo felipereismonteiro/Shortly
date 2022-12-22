@@ -25,6 +25,8 @@ export default function Header(values) {
                 return "/signIn";
             case "Home":
                 return "/user";
+            case "Ranking":
+                return "/ranking";
             default:
                 return "";
         }
