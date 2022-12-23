@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import DeleteButton from "./deleteButton";
 
-
 export default function UserUrls({ loading }) {
   const token = JSON.parse(localStorage.getItem("token"));
   const [urls, setUrls] = useState([]);
@@ -34,10 +33,18 @@ export default function UserUrls({ loading }) {
             <ContainerInside key={obj.id}>
               <Box>
                 <Url>{obj.url}</Url>
-                <Linked href={`https://shortly-api-22wb.onrender.com/urls/open/${obj.short_url}`}>{obj.short_url}</Linked>
-                <H1>Quantidade de visitantes: {obj.visited}</H1>
+                <Linked
+                  href={`https://shortly-api-22wb.onrender.com/urls/open/${obj.short_url}`}
+                >
+                  {obj.short_url}
+                </Linked>
+                <H1>Number of visitants: {obj.visited}</H1>
               </Box>
-              <DeleteButton loadUrls={loadUrls} setLoadUrls={setLoadUrls} id={obj.id}/>
+              <DeleteButton
+                loadUrls={loadUrls}
+                setLoadUrls={setLoadUrls}
+                id={obj.id}
+              />
             </ContainerInside>
           ))
         ) : (
@@ -48,14 +55,14 @@ export default function UserUrls({ loading }) {
   );
 }
 const Linked = styled.a`
-    text-decoration: underline;
-    font-family: "Lexend Deca";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    color: #ffffff;
-    cursor: pointer;
-`
+  text-decoration: underline;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+`;
 const SemTexto = styled.h1`
   font-family: "Lexend Deca";
   font-style: normal;
@@ -101,4 +108,3 @@ const Box = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
-
