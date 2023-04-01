@@ -1,4 +1,5 @@
-# Shortly - WebSite wich gives you a short url and rank the most visited urls!!!
+# Shortly 
+- WebSite wich gives you a short url and rank the most visited urls!!!
 
 ![](https://github.com/felipereismonteiro/Shortly/blob/main/shortly.gif)
 
