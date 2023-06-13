@@ -7,15 +7,15 @@ import UserUrls from "./userUrls";
 import axios from "axios";
 
 export default function UserRoute() {
-  const options = ["Home", "Ranking", "Sair"];
+  const options = ["Home", "Ranking", "LogOut"];
   const [loading, setLoading] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
 
   if (token === null) {
     return (
       <>
-      <Header options={["Entrar", "Cadastre-se"]}/>
-      <H1>Você não está logado! 😁</H1>
+      <Header options={["SignIn", "SignUp"]}/>
+      <H1>You`re not logged! 😁</H1>
       </>
       )
   }
@@ -42,7 +42,6 @@ export default function UserRoute() {
   return (
     <>
       <Header
-        mainText="Seja bem-vindo(a), Pessoa!"
         options={options}
       />
       <Logo />
@@ -53,10 +52,10 @@ export default function UserRoute() {
           type="text"
           name="url"
           required
-          placeholder="Links que cabem no bolso"
+          placeholder="Links that fit in your pocket 😁"
         />
         {loading === false ? (
-          <Submit type="submit" value={"Encurtar link"}></Submit>
+          <Submit type="submit" value={"Shorten link"}></Submit>
         ) : (
           <ButtonLoading>
             <ThreeDots

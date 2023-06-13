@@ -6,11 +6,10 @@ import Header from "../components/header";
 import Logo from "../components/logo";
 import axios from "axios";
 import { Context } from "../context/context";
-import UserUrls from "../userRoute/userUrls";
 
 export default function SignInComponent() {
   const [loading, setLoading] = useState(false);
-  const options = ["Entrar", "Cadastre-se"];
+  const options = ["SignIn", "SignUp"];
   const navigate = useNavigate();
   const {setToken} = useContext(Context);
 
@@ -41,9 +40,9 @@ export default function SignInComponent() {
       <Logo />
       <Form onSubmit={signIn}>
         <Input type="email" name="email" required placeholder="E-mail" />
-        <Input type="password" name="password" required placeholder="Senha" />
+        <Input type="password" name="password" required placeholder="Password" />
         {loading === false ? (
-          <Submit type="submit" value={"Entrar"}></Submit>
+          <Submit type="submit" value={"Signin"}></Submit>
         ) : (
           <ButtonLoading>
             <ThreeDots

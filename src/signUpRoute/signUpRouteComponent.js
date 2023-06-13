@@ -7,7 +7,7 @@ import Header from "../components/header";
 import Logo from "../components/logo";
 
 export default function SignUpRouteComponent() {
-  const options = ["Entrar", "Cadastre-se"];
+  const options = ["SignIn", "SignUp"];
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -53,17 +53,17 @@ export default function SignUpRouteComponent() {
       <Header options={options} page={"SignUp"} />
       <Logo />
       <Form onSubmit={signUp}>
-        <Input type="name" name="name" required placeholder="Nome" />
+        <Input type="name" name="name" required placeholder="Name" />
         <Input type="email" name="email" required placeholder="E-mail" />
-        <Input type="password" name="password" required placeholder="Senha" />
+        <Input type="password" name="password" required placeholder="Password" />
         <Input
           type="password"
           name="confirmPassword"
           required
-          placeholder="Confirmar senha"
+          placeholder="Confirm password"
         />
         {loading === false ? (
-          <Submit type="submit" value={"Criar conta"}></Submit>
+          <Submit type="submit" value={"SignUp"}></Submit>
         ) : (
           <ButtonLoading>
             <ThreeDots

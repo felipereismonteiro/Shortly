@@ -19,7 +19,7 @@ export default function RankingPage() {
   }, [])
     
   if (token === null) {
-    options = ["Entrar", "Cadastre-se"];
+    options = ["SignIn", "LogOut"];
 
     return (
         <>
@@ -30,14 +30,14 @@ export default function RankingPage() {
             <h1>Ranking</h1>
           </Container>
           <BoxRanking>
-            {ranking.map((R, index) => <h1 key={R.id}>{index + 1}. {R.name} - {R.linksCount} links - {R.visitCount} visualizações</h1>)}
+            {ranking.map((R, index) => <h1 key={R.id}>{index + 1}. {R.name} - {R.linksCount} links - {R.visitCount} visualizations</h1>)}
           </BoxRanking>
-          <NotLogged>Crie sua conta para usar nosso serviço!</NotLogged>
+          <NotLogged>Create your account to use our services!</NotLogged>
         </>
       );
 
   } else {
-    options = ["Home", "Ranking", "Sair"];
+    options = ["Home", "Ranking", "LogOut"];
   }
 
   return (
@@ -49,7 +49,7 @@ export default function RankingPage() {
         <h1>Ranking</h1>
       </Container>
       <BoxRanking>
-        {ranking.map((R, index) => <h1 key={R.id}>{index + 1}. {R.name} - {R.linksCount} links - {R.visitCount} visualizações</h1>)}
+        {ranking.map((R, index) => <h1 key={R.id}>{index + 1}. {R.name} - {R.linksCount} links - {R.visitCount} - views</h1>)}
       </BoxRanking>
     </>
   );

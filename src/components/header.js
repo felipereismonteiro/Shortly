@@ -16,12 +16,12 @@ export default function Header(values) {
 
     function link(o) {
         switch(o) {
-            case "Cadastre-se":
+            case "SignUp":
                 return "/signUp";
-            case "Entrar":
+            case "SignIn":
                 localStorage.clear();
                 return "/signIn";
-            case "Sair":
+            case "LogOut":
                 return "/signIn";
             case "Home":
                 return "/user";
@@ -34,7 +34,7 @@ export default function Header(values) {
 
     return(
         <Container>
-            <MainText>{token !== null && `Seja bem vindo(a), ${token.userName.name}`}</MainText>
+            <MainText>{token !== null && `Wellcome, ${token.userName.name}`}</MainText>
             <Option>
                 {options.map((o, index) => <Options key={index} href={link(o)} color={color(o)}>{o}</Options>)}
             </Option>
