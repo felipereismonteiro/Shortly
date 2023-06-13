@@ -14,6 +14,7 @@ export default function RankingPage() {
     axios.get("https://shortly-api-22wb.onrender.com/ranking").then((res) => {
         setRanking(res.data);
     }).catch((err) => {
+      console.log("oi")
         console.log(err.response.data)
     })
   }, [])

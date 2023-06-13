@@ -15,7 +15,7 @@ export default function UserRoute() {
     return (
       <>
       <Header options={["SignIn", "SignUp"]}/>
-      <H1>You`re not logged! 😁</H1>
+      <H1>You`re not logged! 😅</H1>
       </>
       )
   }

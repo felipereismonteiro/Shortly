@@ -10,7 +10,7 @@ export default function UserUrls({ loading }) {
 
   const config = {
     headers: {
-      Authorization: `Bearer ` + token.token,
+      Authorization: `Bearer ${token.token}`,
     },
   };
 
@@ -18,7 +18,8 @@ export default function UserUrls({ loading }) {
     axios
       .get("https://shortly-api-22wb.onrender.com/users/me", config)
       .then((r) => {
-        setUrls(r.data.shortenedUrls);
+        console.log(r.data)
+        setUrls(r.data[0].shortenedUrls);
       })
       .catch((err) => {
         console.log(err.response.data);
